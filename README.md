@@ -30,6 +30,7 @@ A **Workout API** é uma aplicação desenvolvida em **Python com FastAPI**, vol
 git clone https://github.com/Ca-ua/workout_api.git
 cd workout_api
 ```
+
 ### 2. Crie um Ambiente Virtual
 
 ```bash
@@ -61,6 +62,7 @@ uvicorn main:app --reload
 ```
 
 ### Estrutura do Projeto
+
 ```bash
 workout_api/
 ├── main.py             # Ponto de entrada da aplicação
@@ -71,4 +73,77 @@ workout_api/
 └── requirements.txt    # Dependências do projeto
 ```
 
+---
+
+## 📚 Exemplos de Uso
+
+### 1. Criar um Atleta
+
+```http
+POST /atletas
+Content-Type: application/json
+
+{
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "idade": 25
+}
+```
+
+### 2. Listar Atletas
+
+```http
+GET /atletas
+```
+
+### 3. Criar um Exercício
+
+```http
+POST /exercicios
+Content-Type: application/json
+
+{
+  "nome": "Supino Reto",
+  "grupo_muscular": "Peito"
+}
+```
+
+### 4. Criar uma Ficha de Treino para um Atleta
+
+```http
+POST /fichas
+Content-Type: application/json
+
+{
+  "atleta_id": 1,
+  "exercicios": [
+    { "exercicio_id": 1, "series": 4, "repeticoes": 10 },
+    { "exercicio_id": 2, "series": 3, "repeticoes": 12 }
+  ]
+}
+```
+
+### 5. Consultar Fichas de um Atleta
+
+```http
+GET /fichas/atleta/1
+```
+
+### 6. Atualizar Dados de um Exercício
+
+```http
+PUT /exercicios/1
+Content-Type: application/json
+
+{
+  "nome": "Supino Inclinado",
+  "grupo_muscular": "Peito Superior"
+}
+```
+
+### 7. Deletar um Atleta
+
+```http
+DELETE /atletas/1
+```
 
